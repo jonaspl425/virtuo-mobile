@@ -37,7 +37,7 @@ export default function ExerciseScreen() {
       if (!exercise) return;
       setRunState("GENERATING_PROMPT");
       try {
-        const generated = await generateExercisePrompt(exercise.exercise_type, exercise.title);
+        const generated = await generateExercisePrompt(exercise);
         if (alive) setPrompt(generated);
       } catch {
         if (alive) setPrompt(fallbackPrompt);
@@ -89,11 +89,10 @@ export default function ExerciseScreen() {
 
     try {
       const graded = await gradeAttempt({
+        exercise,
         transcript,
-        exerciseType: exercise.exercise_type,
         generatedPrompt: prompt,
-        durationSeconds: seconds,
-        exerciseInstructions: exercise.instructions
+        durationSeconds: seconds
       });
       saveResult(graded);
     } catch {
