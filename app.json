@@ -6,7 +6,9 @@
     "orientation": "portrait",
     "scheme": "virtuo",
     "userInterfaceStyle": "automatic",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "plugins": [
       "expo-router",
       "expo-av",
@@ -16,7 +18,8 @@
           "photosPermission": "Allow Virtuo to use a profile picture from your library.",
           "microphonePermission": "Allow Virtuo to record your voice for speaking exercises."
         }
-      ]
+      ],
+      "expo-font"
     ],
     "ios": {
       "supportsTablet": true,
@@ -24,7 +27,9 @@
     },
     "android": {
       "package": "com.virtuo.speaking",
-      "permissions": ["RECORD_AUDIO"]
+      "permissions": [
+        "RECORD_AUDIO"
+      ]
     },
     "web": {
       "bundler": "metro"
